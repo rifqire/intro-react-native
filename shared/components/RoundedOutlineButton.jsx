@@ -1,5 +1,6 @@
 import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import COLORS from "../../constants/colors";
 
 const RoundedOutlineButton = ({ title, onPress }) => {
   return (
@@ -14,23 +15,22 @@ const RoundedOutlineButton = ({ title, onPress }) => {
 const styles = StyleSheet.create({
   button: {
     alignItems: "center",
-    justifyContent: "center",
-    paddingVertical: 12,
-    paddingHorizontal: 32,
+    backgroundColor: "transparent",
+    borderColor: COLORS.primary,
     borderRadius: 30,
-    borderColor: "#007AFF",
     borderWidth: 1,
     height: 60,
-    backgroundColor: "transparent",
     marginBottom: 20,
-    marginTop: 100
+    justifyContent: "center",
+    paddingHorizontal: 32,
+    paddingVertical: 12,
   },
   text: {
+    color: COLORS.primary,
     fontSize: 16,
-    lineHeight: 21,
     fontWeight: "bold",
     letterSpacing: 0.25,
-    color: "#007AFF",
+    lineHeight: 21,
   }
 });
 

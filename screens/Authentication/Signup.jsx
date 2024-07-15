@@ -1,26 +1,45 @@
-// components/LoginScreen.js
+import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
-import { View, Text, Button, StyleSheet, Alert, Image, ImageBackground } from "react-native";
 import RoundedTextBox from "../../shared/components/RoundedTextBox";
 import RoundedButton from "../../shared/components/RoundedButton";
 import RoundedOutlineButton from "../../shared/components/RoundedOutlineButton";
+import COLORS from "../../constants/colors";
 
-const LoginScreen = () => {
+const Signup = ({ navigation }) => {
+  const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
-    if (email === "user@example.com" && password === "password") {
-      Alert.alert("Login Successful");
-    } else {
+  const handleRegister = () => {
+    if (fullName === "" && email === "" && password === "") {
       Alert.alert("Login Failed", "Invalid credentials");
+    } else {
+      navigation.navigate("Login");
     }
   };
 
   return (
-    <ImageBackground source={require("../../assets/bg.png")} style={{ flex: 1 }}>
+    <ImageBackground
+      source={require("../../assets/bg.png")}
+      style={{ flex: 1 }}
+    >
       <View style={styles.container}>
-        <Image source={require("../../assets/fb.png")} style={{ width: 90, height: 90, alignSelf: "center", marginBottom: 30 }} />
+        <Image
+          source={require("../../assets/fb.png")}
+          style={{
+            width: 90,
+            height: 90,
+            alignSelf: "center",
+            marginBottom: 30,
+          }}
+        />
+        <RoundedTextBox
+          placeholder="Full Name"
+          value={fullName}
+          onChangeText={setFullName}
+          keyboardType="default"
+          secureTextEntry={false}
+        />
         <RoundedTextBox
           placeholder="Email"
           value={email}
@@ -35,13 +54,19 @@ const LoginScreen = () => {
           keyboardType="default"
           secureTextEntry={true}
         />
-        <RoundedButton title="Login" onPress={handleLogin} />
-        <Text style={styles.text}>Forgot password?</Text>
-        <RoundedOutlineButton title="Register" onPress={() => {}} />
+        <RoundedButton title="Register" onPress={handleRegister} />
+        <RoundedOutlineButton
+          title="I have an account"
+          onPress={() => {
+            navigation.navigate("Login");
+          }}
+        />
       </View>
     </ImageBackground>
   );
 };
+
+export default Signup;
 
 const styles = StyleSheet.create({
   container: {
@@ -59,9 +84,7 @@ const styles = StyleSheet.create({
     lineHeight: 21,
     fontWeight: "semibold",
     letterSpacing: 0.25,
-    color: "black",
+    color: COLORS.black,
     textAlign: "center",
   },
 });
-
-export default LoginScreen;

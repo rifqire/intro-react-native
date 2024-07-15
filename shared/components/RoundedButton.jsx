@@ -1,34 +1,33 @@
 import React from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text } from "react-native";
+import COLORS from "../../constants/colors";
 
 const RoundedButton = ({ title, onPress }) => {
   return (
-    <View>
       <Pressable style={styles.button} onPress={onPress}>
         <Text style={styles.text}>{title}</Text>
       </Pressable>
-    </View>
   );
 };
 
 const styles = StyleSheet.create({
   button: {
     alignItems: "center",
-    justifyContent: "center",
-    paddingVertical: 12,
-    paddingHorizontal: 32,
+    backgroundColor: COLORS.primary,
     borderRadius: 30,
     elevation: 3,
     height: 60,
-    backgroundColor: "#007AFF",
-    marginBottom: 20
+    justifyContent: "center",
+    marginBottom: 20,
+    paddingHorizontal: 32,
+    paddingVertical: 12,
   },
   text: {
+    color: COLORS.white,
     fontSize: 16,
-    lineHeight: 21,
     fontWeight: "bold",
     letterSpacing: 0.25,
-    color: "white",
+    lineHeight: 21,
   }
 });
 
