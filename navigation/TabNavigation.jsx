@@ -7,20 +7,14 @@ import Home from "../screens/TabScreens/Home";
 import Groups from "../screens/TabScreens/Groups";
 import Profile from "../screens/TabScreens/Profile";
 import { createStackNavigator } from "@react-navigation/stack";
-import MyGroups from "../screens/Group/MyGroups";
+import GroupFlatList from "../screens/Group/GroupFlatList";
+import GroupSectionList from "../screens/Group/GroupSectionList";
+import GroupScrollView from "../screens/Group/GroupScrollView";
+import AddMember from "../screens/Group/AddMember";
 
-const Tab = createBottomTabNavigator();
 // Initialize stack & tab
 const Stack = createStackNavigator();
-
-function GroupStack() {
-  return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Groups" component={Groups} />
-      <Stack.Screen name="MyGroups" component={MyGroups} />
-    </Stack.Navigator>
-  );
-}
+const Tab = createBottomTabNavigator();
 
 function getTabBarIcon(route, { color, focused, size }) {
   let iconName;
@@ -38,6 +32,30 @@ function getTabBarIcon(route, { color, focused, size }) {
       break;
   }
   return <Ionicons name={iconName} size={size} color={color} />;
+}
+
+function GroupStack() {
+  return (
+    <Stack.Navigator
+      screenOptions={{ headerShown: false, animationEnabled: false }}
+    >
+      <Stack.Screen name="Lists" component={Groups} />
+      <Stack.Screen name="FlatList" component={AddMemberStack} />
+      <Stack.Screen name="SectionList" component={GroupSectionList} />
+      <Stack.Screen name="ScrollView" component={GroupScrollView} />
+    </Stack.Navigator>
+  );
+}
+
+function AddMemberStack() {
+  return (
+    <Stack.Navigator
+      screenOptions={{ headerShown: false, animationEnabled: false }}
+    >
+      <Stack.Screen name="ViewGroupMembers" component={GroupFlatList} />
+      <Stack.Screen name="AddMember" component={AddMember} />
+    </Stack.Navigator>
+  );
 }
 
 const TabNavigation = () => {

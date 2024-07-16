@@ -24,7 +24,7 @@ export default function Navigator() {
     <SafeAreaView style={{ flex: 1 }}>
       <NavigationContainer>
         {/* <StackNavigation /> */}
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Navigator screenOptions={{ headerShown: false, animationEnabled: false }}>
           {user && isLoggedIn ? (
             <Stack.Screen name="Tabs" component={TabNavigation} />
           ) : (
