@@ -1,6 +1,13 @@
 // components/LoginScreen.js
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Alert, Image, ImageBackground } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Alert,
+  Image,
+  ImageBackground,
+} from "react-native";
 import RoundedTextBox from "../../shared/components/RoundedTextBox";
 import RoundedButton from "../../shared/components/RoundedButton";
 import RoundedOutlineButton from "../../shared/components/RoundedOutlineButton";
@@ -16,14 +23,29 @@ const LoginScreen = ({ navigation }) => {
 
   const handleLogin = () => {
     // Use authentication for login
-    const userData = {email, password};
-    login(userData);
+    const userData = { email, password };
+    if (email === "" && password === "") {
+      Alert.alert("Please fill in all fields");
+    } else {
+      login(userData);
+    }
   };
 
   return (
-    <ImageBackground source={require("../../assets/bg.png")} style={{ flex: 1 }}>
+    <ImageBackground
+      source={require("../../assets/bg.png")}
+      style={{ flex: 1 }}
+    >
       <View style={styles.container}>
-        <Image source={require("../../assets/fb.png")} style={{ width: 90, height: 90, alignSelf: "center", marginBottom: 30 }} />
+        <Image
+          source={require("../../assets/fb.png")}
+          style={{
+            width: 90,
+            height: 90,
+            alignSelf: "center",
+            marginBottom: 30,
+          }}
+        />
         <RoundedTextBox
           placeholder="Email"
           value={email}
@@ -39,7 +61,12 @@ const LoginScreen = ({ navigation }) => {
           secureTextEntry={true}
         />
         <RoundedButton title="Login" onPress={handleLogin} />
-        <RoundedOutlineButton title="Register" onPress={() => {navigation.navigate("Signup")}} />
+        <RoundedOutlineButton
+          title="Register"
+          onPress={() => {
+            navigation.navigate("Signup");
+          }}
+        />
         <Text style={styles.text}>Forgot password?</Text>
       </View>
     </ImageBackground>
