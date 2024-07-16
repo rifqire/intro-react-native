@@ -6,7 +6,7 @@ const Welcome = ({ navigation }) => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Welcome</Text>
-      <RoundedButton title="Let's Go" onPress={() => navigation.navigate("Login")} />
+      <RoundedButton title="Let's Goooo" onPress={() => navigation.navigate("Login")} />
     </View>
   )
 }

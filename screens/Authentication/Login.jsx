@@ -5,17 +5,19 @@ import RoundedTextBox from "../../shared/components/RoundedTextBox";
 import RoundedButton from "../../shared/components/RoundedButton";
 import RoundedOutlineButton from "../../shared/components/RoundedOutlineButton";
 import COLORS from "../../constants/colors";
+import useAuth from "../../context/auth/UseAuth";
 
 const LoginScreen = ({ navigation }) => {
+  // Initialize email & password
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // Initialize login object
+  const { login } = useAuth();
 
   const handleLogin = () => {
-    if (email === "test@gmail.com" && password === "1111") {  
-      navigation.navigate("Tabs");
-    } else {
-      Alert.alert("Login Failed", "Invalid credentials");
-    }
+    // Use authentication for login
+    const userData = {email, password};
+    login(userData);
   };
 
   return (

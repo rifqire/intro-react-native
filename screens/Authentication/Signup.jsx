@@ -1,4 +1,4 @@
-import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
+import { Alert, Image, ImageBackground, StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
 import RoundedTextBox from "../../shared/components/RoundedTextBox";
 import RoundedButton from "../../shared/components/RoundedButton";
@@ -12,7 +12,7 @@ const Signup = ({ navigation }) => {
 
   const handleRegister = () => {
     if (fullName === "" && email === "" && password === "") {
-      Alert.alert("Login Failed", "Invalid credentials");
+      Alert.alert("Please fill in all fields!");
     } else {
       navigation.navigate("Login");
     }
