@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import RoundedButton from '../../shared/components/RoundedButton'
 
-const Profile = () => {
+const Profile = ({navigation}) => {
   return (
     <View>
-      <Text>Profile</Text>
+      <RoundedButton title="Logout" onPress={() => navigation.navigate("Welcome")} />
     </View>
   )
 }

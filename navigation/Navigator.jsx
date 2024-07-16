@@ -37,6 +37,7 @@ function TabNavigation() {
                 tabBarActiveTintColor: COLORS.primary,
                 tabBarInactiveTintColor: COLORS.black,
                 tabBarIcon: (opt) => getTabBarIcon(route.name, opt),
+                tabBarStyle: {height: 70, paddingBottom: 10, paddingTop: 5},
             }
         }}>
         <Tab.Screen name="Home" component={Home}/>
