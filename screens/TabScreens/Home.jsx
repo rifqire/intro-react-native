@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import MyAppBar from '../../shared/components/MyAppBar'
 
 const Home = () => {
   return (
     <View>
-      <Text>Home</Text>
+      <MyAppBar title="Home" />
     </View>
   )
 }

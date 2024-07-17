@@ -2,33 +2,47 @@ import { FlatList, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import ProfileCard from "../../shared/components/ProfileCard";
 import FloatingActionButton from "../../shared/components/FloatingActionButton";
+import { useSelector } from "react-redux";
+import LottieView from "lottie-react-native";
+import MyAppBar from "../../shared/components/MyAppBar";
 
-const DATA = [
-  { id: 1, empName: "Donald J. Trump", empPosition: "Full Stack Developer", empEmail: "donald@gmail.com" },
-  { id: 2, empName: "Joe Biden", empPosition: "Back End Developer", empEmail: "joe@gmail.com" },
-  { id: 3, empName: "Rishi Sunak", empPosition: "Front End Developer", empEmail: "rishi@gmail.com" },
-  { id: 4, empName: "Keir Starmer", empPosition: "Database Administrator", empEmail: "keir@gmail.com" },
-  { id: 5, empName: "Vlad Putin", empPosition: "Chief Technology Officer", empEmail: "putin@gmail.com" },
-  { id: 6, empName: "Kim Jong-Un", empPosition: "Defense Officer", empEmail: "kim@gmail.com" },
-  { id: 7, empName: "Zelensky", empPosition: "Finance Officer", empEmail: "zelensky@gmail.com" },
-];
-
-const GroupFlatList = ({navigation}) => {
-  const renderItem = ({ item }) => (
-    <ProfileCard empName={item.empName} empPosition={item.empPosition} empEmail={item.empEmail}/>
-  );
+const GroupFlatList = ({ navigation }) => {
+  // 4. Initialize the list, the empty states of the input, as well as dispatch
+  const list = useSelector((state) => state.list.list);
 
   return (
     <View style={styles.container}>
-      <Text>Group Members</Text>
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        data={DATA}
-        renderItem={renderItem}
-        keyExtrators={(item) => item.id}
+      <MyAppBar title="Group Members" />
+      {list.length === 0 ? (
+        <View>
+          <LottieView
+            autoPlay
+            loop
+            style={styles.lottieContainer}
+            source={require("../../assets/empty.json")}
+          />
+        </View>
+      ) : (
+        <FlatList
+          style={{ paddingHorizontal: 5, paddingTop: 10}}
+          contentContainerStyle={{ paddingBottom: 150 }}
+          showsVerticalScrollIndicator={false}
+          data={list}
+          keyExtrators={(item, index) => index.toString()}
+          renderItem={({ item }) => (
+            <ProfileCard
+              empName={item.empName}
+              empPosition={item.empPosition}
+              empEmail={item.empEmail}
+            />
+          )}
+        />
+      )}
+      <FloatingActionButton
+        onPress={() => {
+          navigation.navigate("AddMember");
+        }}
       />
-      
-      <FloatingActionButton onPress={() => {navigation.navigate("AddMember")}}/>
     </View>
   );
 };
@@ -38,6 +52,10 @@ export default GroupFlatList;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 20,
+  },
+  lottieContainer: {
+    alignSelf: "center",
+    width: 400,
+    height: 400,
   },
 });
