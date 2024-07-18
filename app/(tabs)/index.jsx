@@ -1,4 +1,4 @@
-import { FlatList, Image, StyleSheet, Text, View } from "react-native"
+import { FlatList, Image, ScrollView, StyleSheet, Text, View } from "react-native"
 import React, { useEffect, useState } from "react"
 import axios from "axios"
 import COLORS from "../../constants/colors"
@@ -50,7 +50,7 @@ const Index = ({ infos }) => {
   const renderItem = ({ item: post }) => (
     <PostDetail
       avatar={"https://avatar.iran.liara.run/public"}
-      username="fjellheisen"
+      username="johndoe"
       image={post.image}
       likes={420}
       p1={`${post.name}, ${post.country}`}
@@ -64,7 +64,7 @@ const Index = ({ infos }) => {
   )
 
   return (
-    <>
+    <ScrollView>
       <FlatList
         showsHorizontalScrollIndicator={false}
         data={stories}
@@ -78,7 +78,7 @@ const Index = ({ infos }) => {
         renderItem={renderItem}
         keyExtractor={(post) => post.id.toString()}
       />
-    </>
+    </ScrollView>
   )
 }
 

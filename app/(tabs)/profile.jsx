@@ -1,4 +1,4 @@
-import { Dimensions, FlatList, Image, StyleSheet, Text, View } from "react-native"
+import { Dimensions, FlatList, Image, ScrollView, StyleSheet, Text, View } from "react-native"
 import React, { useEffect, useState } from "react"
 import MyProfileCard from "../../components/MyProfileCard"
 import useAuth from "../../context/auth/UseAuth"
@@ -24,7 +24,7 @@ const Profile = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://freetestapi.com/api/v1/destinations?limit=0"
+          "https://freetestapi.com/api/v1/destinations?limit=10"
         )
         setPosts(response.data)
       } catch (error) {
@@ -41,7 +41,7 @@ const Profile = () => {
   if (error) return <Text>Error: {error.message}</Text>
 
   const renderItem = ({ item: post }) => (
-    <View style={styles.postContainer}>
+    <View style={styles.container}>
       <Image
         source={{ uri: post.image }}
         style={styles.image}
@@ -51,7 +51,7 @@ const Profile = () => {
   )
 
   return (
-    <>
+    <ScrollView>
       <View style={styles.container}>
         <MyProfileCard
           name="Rifqi R"
@@ -73,7 +73,7 @@ const Profile = () => {
         renderItem={renderItem}
         keyExtractor={(post) => post.id.toString()}
       />
-    </>
+    </ScrollView>
   )
 }
 
