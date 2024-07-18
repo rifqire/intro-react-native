@@ -1,4 +1,12 @@
-import { Dimensions, FlatList, Image, ScrollView, StyleSheet, Text, View } from "react-native"
+import {
+  Dimensions,
+  FlatList,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native"
 import React, { useEffect, useState } from "react"
 import MyProfileCard from "../../components/MyProfileCard"
 import useAuth from "../../context/auth/UseAuth"
@@ -6,6 +14,7 @@ import { router } from "expo-router"
 import COLORS from "../../constants/colors"
 import SquareTextButton from "../../components/SquareTextButton"
 import axios from "axios"
+import StoryScroll from "../../components/StoryScroll"
 
 // Profile == Profile
 const Profile = () => {
@@ -17,6 +26,7 @@ const Profile = () => {
   }
 
   const [posts, setPosts] = useState([])
+  const [countries, setCountries] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
@@ -34,7 +44,21 @@ const Profile = () => {
       }
     }
 
+    const fetchCountries = async () => {
+      try {
+        const response = await axios.get(
+          "https://freetestapi.com/api/v1/countries?limit=10"
+        )
+        setCountries(response.data)
+      } catch (error) {
+        setError(error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
     fetchData()
+    fetchCountries()
   }, [])
 
   if (loading) return <Text>Loading......</Text>
@@ -48,6 +72,13 @@ const Profile = () => {
         resizeMode="contain"
       />
     </View>
+  )
+
+  const renderCountries = ({ item: country }) => (
+    <StoryScroll
+      image={"https://cdn-icons-png.flaticon.com/512/616/616616.png"}
+      username={country.name}
+    />
   )
 
   return (
@@ -67,6 +98,13 @@ const Profile = () => {
         </View>
       </View>
       <FlatList
+        showsHorizontalScrollIndicator={false}
+        data={countries}
+        renderItem={renderCountries}
+        horizontal={true}
+        keyExtractor={(post) => post.id.toString()}
+      />
+      <FlatList
         showsVerticalScrollIndicator={false}
         data={posts}
         numColumns={3}
@@ -81,7 +119,6 @@ export default Profile
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: COLORS.white,
   },
   image: {

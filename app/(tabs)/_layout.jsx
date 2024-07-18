@@ -1,8 +1,8 @@
 import React from "react"
 import { Ionicons } from "@expo/vector-icons"
-import { Tabs } from "expo-router"
+import { router, Tabs } from "expo-router"
 import COLORS from "../../constants/colors"
-import { Image, Text } from "react-native"
+import { Image, Pressable, Text, View } from "react-native"
 
 const TabLayout = () => {
   function getTabBarIcon(routeName, { color, focused, size }) {
@@ -39,7 +39,6 @@ const TabLayout = () => {
         tabBarActiveTintColor: COLORS.black,
         tabBarInactiveTintColor: COLORS.black,
         tabBarIcon: (opt) => getTabBarIcon(route.name, opt),
-        
       })}
     >
       <Tabs.Screen
@@ -48,10 +47,20 @@ const TabLayout = () => {
           headerShown: true,
           animation: "none",
           headerTitle: () => (
-            <Image
-              style={{ width: 100, height: 40 }}
-              source={require("../../assets/header.png")}
-            />
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "space-between",
+                width: "100%",
+              }}
+            >
+              <Image
+                style={{ width: 100, height: 40 }}
+                source={require("../../assets/header.png")}
+              />
+              <Ionicons name="heart-outline" size={24} color="black" />
+            </View>
           ),
         }}
       />
@@ -61,9 +70,22 @@ const TabLayout = () => {
           headerShown: true,
           animation: "none",
           headerTitle: () => (
-            <Text style={{ fontWeight: "bold", fontSize: 18 }}>
-              Explore
-            </Text>
+            <>
+              <Pressable
+                onPress={() => router.navigate("(search)/search")}
+                style={{
+                  flexDirection: "row",
+                  alignItems: "space-between",
+                  justifyContent: "space-between",
+                  width: "100%",
+                }}
+              >
+                <Text style={{ fontWeight: "bold", fontSize: 18 }}>
+                  Explore
+                </Text>
+                <Ionicons name="search" size={24} color="black" />
+              </Pressable>
+            </>
           ),
         }}
       />
@@ -73,9 +95,7 @@ const TabLayout = () => {
           headerShown: true,
           animation: "none",
           headerTitle: () => (
-            <Text style={{ fontWeight: "bold", fontSize: 18 }}>
-              Post
-            </Text>
+            <Text style={{ fontWeight: "bold", fontSize: 18 }}>Post</Text>
           ),
         }}
       />

@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: 280,
-    backgroundColor: COLORS.primary,
+    backgroundColor: COLORS.white,
     objectFit: "cover",
   },
   avatar: {

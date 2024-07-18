@@ -1,8 +1,26 @@
-import { Image, StyleSheet, Text, View } from "react-native"
+import { Image, StyleSheet, Text, View, Linking, Pressable } from "react-native"
 import React from "react"
 import COLORS from "../constants/colors"
 
-const MyProfileCard = ({ name, desc, url, postsAmount, followersAmount, followingAmount }) => {
+const MyProfileCard = ({
+  name,
+  desc,
+  url,
+  postsAmount,
+  followersAmount,
+  followingAmount,
+}) => {
+  const openLink = (url) => {
+    Linking.canOpenURL(url)
+      .then((supported) => {
+        if (!supported) {
+          console.log("Can't handle url: " + url)
+        } else {
+          return Linking.openURL(url)
+        }
+      })
+      .catch((err) => console.error("An error occurred", err))
+  }
   return (
     <View style={styles.container}>
       <View style={styles.avatarContainer}>
@@ -26,7 +44,9 @@ const MyProfileCard = ({ name, desc, url, postsAmount, followersAmount, followin
       <View>
         <Text style={styles.header}>{name}</Text>
         <Text style={styles.text}>{desc}</Text>
-        <Text style={styles.url}>{url}</Text>
+        <Pressable onPress={() => openLink(url)}>
+          <Text style={styles.url}>{url}</Text>
+        </Pressable>
       </View>
     </View>
   )

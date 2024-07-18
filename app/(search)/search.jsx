@@ -1,9 +1,10 @@
-import { Dimensions, FlatList, Image, StyleSheet, Text, View } from "react-native"
+import { FlatList, Image, StyleSheet, Text, View } from "react-native"
 import React, { useEffect, useState } from "react"
-import COLORS from "../../constants/colors"
 import axios from "axios"
+import COLORS from "../../constants/colors"
+import SearchAccountCard from "../../components/SearchAccountCard"
 
-const Explore = () => {
+const Search = () => {
   const [posts, setPosts] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -12,7 +13,7 @@ const Explore = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://freetestapi.com/api/v1/destinations"
+          "https://freetestapi.com/api/v1/actors?limit=15"
         )
         setPosts(response.data)
       } catch (error) {
@@ -29,36 +30,22 @@ const Explore = () => {
   if (error) return <Text>Error: {error.message}</Text>
 
   const renderItem = ({ item: post }) => (
-    <View style={styles.postContainer}>
-      <Image
-        source={{ uri: post.image }}
-        style={styles.image}
-        resizeMode="contain"
-      />
-    </View>
+    <SearchAccountCard
+      image={post.image}
+      name={post.name}
+      desc={post.known_for[0]}
+      followers={post.birth_year}
+    />
   )
 
   return (
     <FlatList
       showsVerticalScrollIndicator={false}
       data={posts}
-      numColumns={3}
       renderItem={renderItem}
       keyExtractor={(post) => post.id.toString()}
     />
   )
 }
 
-export default Explore
-
-const styles = StyleSheet.create({
-  postContainer: {
-    backgroundColor: COLORS.white,
-  },
-  image: {
-    width: Dimensions.get("window").width / 3,
-    height: Dimensions.get("window").width / 3,
-    margin: 1,
-    objectFit: "cover",
-  },
-})
+export default Search

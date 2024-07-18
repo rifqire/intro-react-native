@@ -50,7 +50,7 @@ const Index = ({ infos }) => {
   const renderItem = ({ item: post }) => (
     <PostDetail
       avatar={"https://avatar.iran.liara.run/public"}
-      username="johndoe"
+      username="fjellheisen"
       image={post.image}
       likes={420}
       p1={`${post.name}, ${post.country}`}

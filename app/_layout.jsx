@@ -9,10 +9,6 @@ const RootLayout = () => {
       <AuthProvider>
         <Stack screenOptions={{ headerShown: false, animation: "none" }}>
           <Stack.Screen
-            name="index"
-            options={{ headerShown: false, animation: "none" }}
-          />
-          <Stack.Screen
             name="(tabs)"
             options={{ headerShown: false, animation: "none" }}
           />
@@ -22,6 +18,10 @@ const RootLayout = () => {
           />
           <Stack.Screen
             name="register"
+            options={{ headerShown: false, animation: "none" }}
+          />
+          <Stack.Screen
+            name="index"
             options={{ headerShown: false, animation: "none" }}
           />
         </Stack>
