@@ -1,14 +1,66 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { Dimensions, FlatList, Image, StyleSheet, Text, View } from "react-native"
+import React, { useEffect, useState } from "react"
+import { Ionicons } from "@expo/vector-icons"
+import COLORS from "../../constants/colors"
+import axios from "axios"
 
 const Explore = () => {
-  return (
-    <View>
-      <Text>Explore</Text>
+  const [posts, setPosts] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://freetestapi.com/api/v1/destinations"
+        )
+        console.log(response)
+        setPosts(response.data)
+      } catch (error) {
+        setError(error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchData()
+  }, [])
+
+  if (loading) return <Text>Loading......</Text>
+  if (error) return <Text>Error: {error.message}</Text>
+
+  const renderItem = ({ item: post }) => (
+    <View style={styles.postContainer}>
+      <Image
+        source={{ uri: post.image }}
+        style={styles.image}
+        resizeMode="contain"
+      />
     </View>
+  )
+
+  return (
+    <FlatList
+      showsVerticalScrollIndicator={false}
+      data={posts}
+      numColumns={3}
+      renderItem={renderItem}
+      keyExtractor={(post) => post.id.toString()}
+    />
   )
 }
 
 export default Explore
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  postContainer: {
+    backgroundColor: COLORS.white,
+  },
+  image: {
+    width: Dimensions.get("window").width / 3,
+    height: Dimensions.get("window").width / 3,
+    margin: 1,
+    objectFit: "cover",
+  },
+})
