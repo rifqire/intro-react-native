@@ -7,12 +7,19 @@ import { Image, Text } from "react-native"
 const TabLayout = () => {
   function getTabBarIcon(routeName, { color, focused, size }) {
     let name
+    let label
     switch (routeName) {
       case "index":
         name = focused ? "home" : "home-outline"
         break
+      case "explore":
+        name = focused ? "search" : "search-outline"
+        break
+      case "post":
+        name = focused ? "add-circle" : "add-circle-outline"
+        break
       case "groups":
-        name = focused ? "people" : "people-outline"
+        name = focused ? "chatbubble-ellipses" : "chatbubble-ellipses-outline"
         break
       case "profile":
         name = focused ? "person-circle" : "person-circle-outline"
@@ -26,11 +33,13 @@ const TabLayout = () => {
   return (
     <Tabs
       screenOptions={({ route }) => ({
+        tabBarShowLabel: false,
         headerShown: false,
         animation: "none",
-        tabBarActiveTintColor: COLORS.primary,
+        tabBarActiveTintColor: COLORS.black,
         tabBarInactiveTintColor: COLORS.black,
         tabBarIcon: (opt) => getTabBarIcon(route.name, opt),
+        
       })}
     >
       <Tabs.Screen
@@ -47,13 +56,37 @@ const TabLayout = () => {
         }}
       />
       <Tabs.Screen
+        name="explore"
+        options={{
+          headerShown: true,
+          animation: "none",
+          headerTitle: () => (
+            <Text style={{ fontWeight: "bold", fontSize: 18 }}>
+              Explore
+            </Text>
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="post"
+        options={{
+          headerShown: true,
+          animation: "none",
+          headerTitle: () => (
+            <Text style={{ fontWeight: "bold", fontSize: 18 }}>
+              Post
+            </Text>
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="groups"
         options={{
           headerShown: true,
           animation: "none",
           headerTitle: () => (
             <Text style={{ fontWeight: "bold", fontSize: 18 }}>
-              Group Members
+              Direct Messages
             </Text>
           ),
         }}

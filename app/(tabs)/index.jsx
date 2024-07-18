@@ -38,7 +38,7 @@ const Index = ({ infos }) => {
           source={{ uri: "https://avatar.iran.liara.run/public" }}
           style={styles.avatar}
         />
-        <Text>@taaarannn</Text>
+        <Text style={styles.bold}>fjellheisen</Text>
       </View>
       <Image
         source={{ uri: post.image }}
@@ -55,20 +55,25 @@ const Index = ({ infos }) => {
           <Ionicons name="bookmark-outline" size={24} color={COLORS.black} />
         </View>
       </View>
+      <Text
+        style={{ fontWeight: "bold", marginHorizontal: 18, marginBottom: 5 }}
+      >
+        420 likes
+      </Text>
       <Text style={styles.text}>
-        {post.name}, {post.country}
+        <Text style={styles.bold}>fjellheisen</Text> {post.name}, {post.country}
       </Text>
       <Text style={styles.text}>{post.description}</Text>
-      <Text style={styles.footer}>Posted 30 minutes ago</Text>
+      <Text style={styles.footer}>Posted 69 minutes ago</Text>
     </View>
   )
 
   return (
     <FlatList
+      showsVerticalScrollIndicator={false}
       data={posts}
       renderItem={renderItem}
       keyExtractor={(post) => post.id.toString()}
-      contentContainerStyle={styles.listContentContainer}
     />
   )
 }
@@ -76,11 +81,15 @@ const Index = ({ infos }) => {
 export default Index
 
 const styles = StyleSheet.create({
+  bold: {
+    fontWeight: "bold",
+  },
   iconContainer: {
     flexDirection: "row",
     gap: 15,
     justifyContent: "start",
-    marginHorizontal: 15,
+    marginHorizontal: 18,
+    paddingTop: 10,
     marginVertical: 10,
   },
   avatarContainer: {
@@ -90,25 +99,21 @@ const styles = StyleSheet.create({
   },
   postContainer: {
     backgroundColor: COLORS.white,
-    marginBottom: 15,
-    marginHorizontal: 15,
-    borderRadius: 10,
-    elevation: 1,
+    marginHorizontal: 0,
     paddingBottom: 18,
   },
   image: {
     width: "100%",
     height: 280,
-    backgroundColor: COLORS.white,
+    backgroundColor: COLORS.primary,
+    objectFit: "cover",
   },
   avatar: {
     width: 35,
     height: 35,
-    margin: 15,
-  },
-  listContentContainer: {
-    paddingBottom: 15,
-    marginTop: 20,
+    marginVertical: 15,
+    marginLeft: 18,
+    marginRight: 10,
   },
   text: {
     fontWeight: "normal",
