@@ -4,7 +4,6 @@ import ProfileCard from "../../shared/components/ProfileCard";
 import FloatingActionButton from "../../shared/components/FloatingActionButton";
 import { useSelector } from "react-redux";
 import LottieView from "lottie-react-native";
-import MyAppBar from "../../shared/components/MyAppBar";
 
 const GroupFlatList = ({ navigation }) => {
   // 4. Initialize the list, the empty states of the input, as well as dispatch
@@ -12,7 +11,6 @@ const GroupFlatList = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <MyAppBar title="Group Members" />
       {list.length === 0 ? (
         <View>
           <LottieView
