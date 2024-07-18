@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View, Button } from "react-native";
 import React from "react";
-import COLORS from "../../constants/colors";
+import COLORS from "../constants/colors";
 import { Ionicons } from "@expo/vector-icons";
 
-const ProfileCard = ({ empName, empPosition, empEmail }) => {
+const GroupProfileCard = ({ empName, empPosition, empEmail }) => {
   return (
     <View style={styles.item}>
       <Text style={styles.title}>{empName}</Text>
@@ -17,7 +17,7 @@ const ProfileCard = ({ empName, empPosition, empEmail }) => {
   );
 };
 
-export default ProfileCard;
+export default GroupProfileCard;
 
 const styles = StyleSheet.create({
   item: {

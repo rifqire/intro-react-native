@@ -1,6 +1,6 @@
 import React from "react";
 import { Pressable, StyleSheet, Text } from "react-native";
-import COLORS from "../../constants/colors";
+import COLORS from "../constants/colors";
 
 const RoundedButton = ({ title, onPress }) => {
   return (

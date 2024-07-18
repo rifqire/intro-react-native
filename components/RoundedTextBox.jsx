@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, TextInput, View } from "react-native";
-import COLORS from "../../constants/colors";
+import COLORS from "../constants/colors";
 
 const RoundedTextBox = ({placeholder, value, onChangeText, keyboardType, secureTextEntry}) => {
   return <View>
