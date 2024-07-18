@@ -5,6 +5,7 @@ const COLORS = {
     secondary: '#F0F0F0',
     accent: '#FFC107',
     gray: '#525252',
+    lightGray: '#F0F0F0',
 }
 
 export default COLORS

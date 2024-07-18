@@ -98,7 +98,7 @@ const TabLayout = () => {
           animation: "none",
           headerTitle: () => (
             <Text style={{ fontWeight: "bold", fontSize: 18 }}>
-              My Profile
+              fjellheisen
             </Text>
           ),
         }}

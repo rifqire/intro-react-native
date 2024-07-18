@@ -1,6 +1,5 @@
 import { Dimensions, FlatList, Image, StyleSheet, Text, View } from "react-native"
 import React, { useEffect, useState } from "react"
-import { Ionicons } from "@expo/vector-icons"
 import COLORS from "../../constants/colors"
 import axios from "axios"
 
@@ -15,7 +14,6 @@ const Explore = () => {
         const response = await axios.get(
           "https://freetestapi.com/api/v1/destinations"
         )
-        console.log(response)
         setPosts(response.data)
       } catch (error) {
         setError(error)
@@ -55,6 +53,7 @@ export default Explore
 
 const styles = StyleSheet.create({
   postContainer: {
+    flex: 1,
     backgroundColor: COLORS.white,
   },
   image: {
