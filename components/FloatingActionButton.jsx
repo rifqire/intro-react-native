@@ -1,6 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import COLORS from "../constants/colors";
+import { Ionicons } from "@expo/vector-icons";
 
 const FloatingActionButton = ({onPress}) => {
   return (
@@ -8,7 +9,7 @@ const FloatingActionButton = ({onPress}) => {
       style={styles.fab}
       onPress={onPress}
     >
-      <Text style={{ color: "white" }}>Add</Text>
+      <Ionicons name="chatbubbles" size={24} color={COLORS.white} />
     </TouchableOpacity>
   );
 };
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: 70,
     position: "absolute",
-    top: 640,
+    top: 620,
     right: 30,
     height: 70,
     backgroundColor: COLORS.primary,

@@ -2,6 +2,7 @@ import React from "react"
 import { Ionicons } from "@expo/vector-icons"
 import { Tabs } from "expo-router"
 import COLORS from "../../constants/colors"
+import { Image, Text } from "react-native"
 
 const TabLayout = () => {
   function getTabBarIcon(routeName, { color, focused, size }) {
@@ -34,15 +35,40 @@ const TabLayout = () => {
     >
       <Tabs.Screen
         name="index"
-        options={{ headerShown: true, animation: "none" }}
+        options={{
+          headerShown: true,
+          animation: "none",
+          headerTitle: () => (
+            <Image
+              style={{ width: 100, height: 40 }}
+              source={require("../../assets/header.png")}
+            />
+          ),
+        }}
       />
       <Tabs.Screen
         name="groups"
-        options={{ headerShown: true, animation: "none" }}
+        options={{
+          headerShown: true,
+          animation: "none",
+          headerTitle: () => (
+            <Text style={{ fontWeight: "bold", fontSize: 18 }}>
+              Group Members
+            </Text>
+          ),
+        }}
       />
       <Tabs.Screen
         name="profile"
-        options={{ headerShown: true, animation: "none" }}
+        options={{
+          headerShown: true,
+          animation: "none",
+          headerTitle: () => (
+            <Text style={{ fontWeight: "bold", fontSize: 18 }}>
+              My Profile
+            </Text>
+          ),
+        }}
       />
     </Tabs>
   )
