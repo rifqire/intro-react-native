@@ -29,7 +29,7 @@ export default StoryScroll
 const styles = StyleSheet.create({
   storyContainer: {
     width: 90,
-    height: 120,
+    height: 100,
     objectFit: "cover",
     backgroundColor: COLORS.white,
     paddingBottom: 30,

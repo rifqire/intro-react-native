@@ -22,6 +22,7 @@ const GroupFlatList = ({ navigation }) => {
         </View>
       ) : (
         <FlatList
+          overScrollMode="never"
           style={{ paddingHorizontal: 5, paddingTop: 10}}
           contentContainerStyle={{ paddingBottom: 150 }}
           showsVerticalScrollIndicator={false}

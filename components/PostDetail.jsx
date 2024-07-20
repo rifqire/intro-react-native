@@ -6,9 +6,20 @@ import { Ionicons } from "@expo/vector-icons"
 const PostDetail = ({ avatar, username, image, likes, p1, p2, time }) => {
   return (
     <View style={styles.postContainer}>
-      <View style={styles.avatarContainer}>
-        <Image source={{ uri: `${avatar}` }} style={styles.avatar} />
-        <Text style={styles.bold}>{username}</Text>
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginRight: 18,
+          marginTop: 10,
+        }}
+      >
+        <View style={styles.avatarContainer}>
+          <Image source={{ uri: `${avatar}` }} style={styles.avatar} />
+          <Text style={styles.bold}>{username}</Text>
+        </View>
+        <Ionicons name="ellipsis-vertical" size={16} color={COLORS.black} />
       </View>
       <Image
         source={{ uri: `${image}` }}
@@ -26,7 +37,11 @@ const PostDetail = ({ avatar, username, image, likes, p1, p2, time }) => {
         </View>
       </View>
       <Text
-        style={{ fontFamily: "Roboto_500Medium", marginHorizontal: 18, marginBottom: 5 }}
+        style={{
+          fontFamily: "Roboto_500Medium",
+          marginHorizontal: 18,
+          marginBottom: 5,
+        }}
       >
         {likes} likes
       </Text>
@@ -61,7 +76,7 @@ const styles = StyleSheet.create({
   postContainer: {
     backgroundColor: COLORS.white,
     marginHorizontal: 0,
-    paddingBottom: 18,
+    paddingBottom: 5,
   },
   image: {
     width: "100%",

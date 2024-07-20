@@ -42,6 +42,7 @@ const Explore = () => {
 
   return (
     <FlatList
+    overScrollMode="never"
       showsVerticalScrollIndicator={false}
       data={posts}
       numColumns={3}

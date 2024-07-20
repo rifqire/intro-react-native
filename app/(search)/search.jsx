@@ -41,6 +41,7 @@ const Search = () => {
 
   return (
     <FlatList
+      overScrollMode="never"
       showsVerticalScrollIndicator={false}
       data={posts}
       renderItem={renderItem}

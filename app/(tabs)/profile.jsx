@@ -84,7 +84,7 @@ const Profile = () => {
   )
 
   return (
-    <ScrollView>
+    <ScrollView overScrollMode="never" style={{backgroundColor: COLORS.white}}>
       <View style={styles.container}>
         <MyProfileCard
           name="Rifqi R"
@@ -100,13 +100,20 @@ const Profile = () => {
         </View>
       </View>
       <FlatList
+        overScrollMode="never"
         showsHorizontalScrollIndicator={false}
         data={countries}
         renderItem={renderCountries}
         horizontal={true}
         keyExtractor={(post) => post.id.toString()}
       />
+      <View
+        style={{
+          marginVertical: 10,
+        }}
+      />
       <FlatList
+        overScrollMode="never"
         showsVerticalScrollIndicator={false}
         data={posts}
         numColumns={3}

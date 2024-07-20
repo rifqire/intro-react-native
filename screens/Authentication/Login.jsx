@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     lineHeight: 21,
-    fontWeight: "semibold",
+    fontFamily: "Roboto_500Medium",
     letterSpacing: 0.25,
     color: COLORS.black,
     textAlign: "center",

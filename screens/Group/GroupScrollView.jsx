@@ -18,7 +18,7 @@ const GroupScrollView = () => {
   return (
     <View>
       <Text>ScrollView</Text>
-      <ScrollView>
+      <ScrollView overScrollMode="never">
         {DATA.map((item) => (
           <View key={item.id} style={styles.item}>
             <Text style={styles.title}>{item.title}</Text>

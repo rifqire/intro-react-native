@@ -1,4 +1,11 @@
-import { FlatList, Image, ScrollView, StyleSheet, Text, View } from "react-native"
+import {
+  FlatList,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native"
 import React, { useEffect, useState } from "react"
 import axios from "axios"
 import PostDetail from "../../components/PostDetail"
@@ -64,8 +71,9 @@ const Index = ({ infos }) => {
   )
 
   return (
-    <ScrollView>
+    <ScrollView overScrollMode="never">
       <FlatList
+        overScrollMode="never"
         showsHorizontalScrollIndicator={false}
         data={stories}
         renderItem={renderStories}
@@ -73,6 +81,7 @@ const Index = ({ infos }) => {
         keyExtractor={(post) => post.id.toString()}
       />
       <FlatList
+        overScrollMode="never"
         showsVerticalScrollIndicator={false}
         data={posts}
         renderItem={renderItem}
