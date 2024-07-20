@@ -10,7 +10,14 @@ const StoryScroll = ({ image, username }) => {
         style={styles.story}
         resizeMode="contain"
       />
-      <Text style={{ fontSize: 10, marginVertical: 5, textAlign: "center" }}>
+      <Text
+        style={{
+          fontSize: 10,
+          marginVertical: 5,
+          textAlign: "center",
+          fontFamily: "Roboto_500Medium",
+        }}
+      >
         {username}
       </Text>
     </View>

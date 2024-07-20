@@ -80,7 +80,7 @@ const TabLayout = () => {
                   width: "100%",
                 }}
               >
-                <Text style={{ fontWeight: "bold", fontSize: 18 }}>
+                <Text style={{ fontFamily: "Roboto_500Medium", fontSize: 18 }}>
                   Explore
                 </Text>
                 <Ionicons name="search" size={24} color="black" />
@@ -95,7 +95,7 @@ const TabLayout = () => {
           headerShown: true,
           animation: "none",
           headerTitle: () => (
-            <Text style={{ fontWeight: "bold", fontSize: 18 }}>Post</Text>
+            <Text style={{ fontFamily: "Roboto_500Medium", fontSize: 18 }}>Post</Text>
           ),
         }}
       />
@@ -105,7 +105,7 @@ const TabLayout = () => {
           headerShown: true,
           animation: "none",
           headerTitle: () => (
-            <Text style={{ fontWeight: "bold", fontSize: 18 }}>
+            <Text style={{ fontFamily: "Roboto_500Medium", fontSize: 18 }}>
               Direct Messages
             </Text>
           ),
@@ -117,7 +117,7 @@ const TabLayout = () => {
           headerShown: true,
           animation: "none",
           headerTitle: () => (
-            <Text style={{ fontWeight: "bold", fontSize: 18 }}>
+            <Text style={{ fontFamily: "Roboto_500Medium", fontSize: 18 }}>
               fjellheisen
             </Text>
           ),

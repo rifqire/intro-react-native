@@ -1,8 +1,9 @@
 import { FlatList, Image, StyleSheet, Text, View } from "react-native"
 import React, { useEffect, useState } from "react"
 import axios from "axios"
-import COLORS from "../../constants/colors"
 import SearchAccountCard from "../../components/SearchAccountCard"
+import Loading from "../../components/Loading"
+import Error from "../../components/Error"
 
 const Search = () => {
   const [posts, setPosts] = useState([])
@@ -26,8 +27,8 @@ const Search = () => {
     fetchData()
   }, [])
 
-  if (loading) return <Text>Loading......</Text>
-  if (error) return <Text>Error: {error.message}</Text>
+  if (loading) return <Loading />
+  if (error) return <Error errorMsg={error.message} />
 
   const renderItem = ({ item: post }) => (
     <SearchAccountCard

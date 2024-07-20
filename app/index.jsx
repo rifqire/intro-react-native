@@ -7,7 +7,7 @@ import { router } from "expo-router"
 const Index = () => {
   return (
     <View style={styles.container}>
-      <Text>Welcome</Text>
+      <Text style={{ fontFamily: "Roboto_700Bold" }}>Welcome</Text>
       <RoundedButton
         title="Let's Goooo"
         onPress={() => router.navigate("login")}

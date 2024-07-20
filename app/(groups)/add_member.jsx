@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     marginBottom: 25,
-    fontWeight: "bold",
+    fontFamily: "Roboto_500Medium",
     textAlign: "center",
   },
   container: {

@@ -14,13 +14,13 @@ export default SquareTextButton
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: COLORS.lightGray,
-    padding: 10,
-    borderRadius: 10,
-    marginBottom: 10,
-    justifyContent: "center",
     alignItems: "center",
+    backgroundColor: COLORS.lightGray,
+    borderRadius: 10,
+    fontFamily: "Roboto_500Medium",
+    justifyContent: "center",
+    marginBottom: 10,
+    padding: 10,
     textAlign: "center",
-    fontWeight: "bold",
   },
 })

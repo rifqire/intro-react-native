@@ -15,6 +15,8 @@ import COLORS from "../../constants/colors"
 import SquareTextButton from "../../components/SquareTextButton"
 import axios from "axios"
 import StoryScroll from "../../components/StoryScroll"
+import Loading from "../../components/Loading"
+import Error from "../../components/Error"
 
 // Profile == Profile
 const Profile = () => {
@@ -61,8 +63,8 @@ const Profile = () => {
     fetchCountries()
   }, [])
 
-  if (loading) return <Text>Loading......</Text>
-  if (error) return <Text>Error: {error.message}</Text>
+  if (loading) return <Loading />
+  if (error) return <Error errorMsg={error.message} />
 
   const renderItem = ({ item: post }) => (
     <View style={styles.container}>

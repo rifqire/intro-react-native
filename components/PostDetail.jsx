@@ -26,7 +26,7 @@ const PostDetail = ({ avatar, username, image, likes, p1, p2, time }) => {
         </View>
       </View>
       <Text
-        style={{ fontWeight: "bold", marginHorizontal: 18, marginBottom: 5 }}
+        style={{ fontFamily: "Roboto_500Medium", marginHorizontal: 18, marginBottom: 5 }}
       >
         {likes} likes
       </Text>
@@ -43,7 +43,7 @@ export default PostDetail
 
 const styles = StyleSheet.create({
   bold: {
-    fontWeight: "bold",
+    fontFamily: "Roboto_500Medium",
   },
   iconContainer: {
     flexDirection: "row",
@@ -77,13 +77,13 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   text: {
-    fontWeight: "normal",
+    fontFamily: "Roboto_400Regular",
     marginBottom: 5,
     marginHorizontal: 18,
   },
   footer: {
     fontSize: 10,
-    fontWeight: "normal",
+    fontFamily: "Roboto_400Regular",
     marginVertical: 5,
     marginHorizontal: 18,
   },

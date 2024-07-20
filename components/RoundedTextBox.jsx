@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     borderColor: COLORS.gray,
     borderRadius: 10,
     borderWidth: 1,
+    fontFamily: "Roboto_500Medium",
     height: 70,
     marginBottom: 20,
     paddingLeft: 15,

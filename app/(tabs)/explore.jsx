@@ -2,6 +2,8 @@ import { Dimensions, FlatList, Image, StyleSheet, Text, View } from "react-nativ
 import React, { useEffect, useState } from "react"
 import COLORS from "../../constants/colors"
 import axios from "axios"
+import Loading from "../../components/Loading"
+import Error from "../../components/Error"
 
 const Explore = () => {
   const [posts, setPosts] = useState([])
@@ -25,8 +27,8 @@ const Explore = () => {
     fetchData()
   }, [])
 
-  if (loading) return <Text>Loading......</Text>
-  if (error) return <Text>Error: {error.message}</Text>
+  if (loading) return <Loading />
+  if (error) return <Error errorMsg={error.message} />
 
   const renderItem = ({ item: post }) => (
     <View style={styles.postContainer}>

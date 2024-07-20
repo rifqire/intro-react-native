@@ -61,12 +61,12 @@ const styles = StyleSheet.create({
   },
   followerHeading: {
     fontSize: 18,
-    fontWeight: "bold",
+    fontFamily: "Roboto_500Medium",
     textAlign: "center",
   },
   followerText: {
     fontSize: 14,
-    fontWeight: "normal",
+    fontFamily: "Roboto_400Regular",
     textAlign: "center",
   },
   avatar: {
@@ -93,17 +93,20 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 2,
     color: COLORS.black,
+    fontFamily: "Roboto_500Medium",
   },
   text: {
     fontSize: 14,
     letterSpacing: 0.25,
     color: COLORS.gray,
     marginBottom: 2,
+    fontFamily: "Roboto_400Regular",
   },
   url: {
     fontSize: 14,
     letterSpacing: 0.25,
     color: COLORS.primary,
     marginBottom: 2,
+    fontFamily: "Roboto_400Regular",
   },
 })

@@ -1,10 +1,10 @@
 import { FlatList, Image, ScrollView, StyleSheet, Text, View } from "react-native"
 import React, { useEffect, useState } from "react"
 import axios from "axios"
-import COLORS from "../../constants/colors"
-import { Ionicons } from "@expo/vector-icons"
 import PostDetail from "../../components/PostDetail"
 import StoryScroll from "../../components/StoryScroll"
+import Loading from "../../components/Loading"
+import Error from "../../components/Error"
 
 // Index == Home
 const Index = ({ infos }) => {
@@ -44,8 +44,8 @@ const Index = ({ infos }) => {
     fetchStories()
   }, [])
 
-  if (loading) return <Text>Loading......</Text>
-  if (error) return <Text>Error: {error.message}</Text>
+  if (loading) return <Loading />
+  if (error) return <Error errorMsg={error.message} />
 
   const renderItem = ({ item: post }) => (
     <PostDetail

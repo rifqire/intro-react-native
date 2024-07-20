@@ -28,9 +28,9 @@ const styles = StyleSheet.create({
   text: {
     color: COLORS.primary,
     fontSize: 16,
-    fontWeight: "bold",
     letterSpacing: 0.25,
     lineHeight: 21,
+    fontFamily: "Roboto_500Medium",
   }
 });
 

@@ -11,9 +11,9 @@ const SearchAccountCard = ({image, name, desc, followers}) => {
         resizeMode="contain"
       />
       <View style={styles.searchDetails}>
-        <Text style={{ fontWeight: "bold" }}>{name}</Text>
-        <Text style={{ color: COLORS.gray }}>{desc}</Text>
-        <Text style={{ color: COLORS.gray }}>{followers} followers</Text>
+        <Text style={{ fontFamily: "Roboto_500Medium" }}>{name}</Text>
+        <Text style={{ color: COLORS.gray, fontFamily: "Roboto_400Regular" }}>{desc}</Text>
+        <Text style={{ color: COLORS.gray, fontFamily: "Roboto_500Medium" }}>{followers} followers</Text>
       </View>
     </View>
   )
